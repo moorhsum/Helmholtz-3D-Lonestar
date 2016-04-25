@@ -1,0 +1,17 @@
+#!/bin/bash
+# Script for submitting jobs
+
+echo "Submitting Job to Queue..."
+qsub 	-V \
+	-q largemem \
+	-l h_rt=24:00:00 \
+	-pe 1way 24 \
+	-N IBIM_HelmholtzCombo \
+	-M moorhsumsignup@gmail.com \
+	-m beasn \
+	-cwd \
+	-o output.txt \
+	-e error.txt \
+	-b y \
+	./largeexample2 128 2.404825558 0 1.1
+
